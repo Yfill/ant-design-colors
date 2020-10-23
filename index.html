@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ant-design-colors</title>
+    <style>
+        @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
+
+        code {
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
+        }
+
+        .item {
+            height: 40px;
+            line-height: 40px;
+            border-width: 0 0 1px 0;
+            border-style: solid;
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+
+        * {
+            transition: background-color .25s;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/solarized-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js/languages/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js/languages/bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js/languages/css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios"></script>
+    <script src="https://vendor.yfill.cn/statistics.js" async></script>
+    <script src="./node_modules/@yfill/theme/dist/index.js"></script>
+    <script src="./dist/index.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        axios.get('./README.md').then(function (res) {
+            var data = res.data;
+            document.getElementById('content').innerHTML = marked(data);
+            Array.apply(null, document.querySelectorAll('pre code')).forEach(function (block) {
+                block.setAttribute('background-color-1', '')
+                hljs.highlightBlock(block);
+            });
+        }).catch(function (e) {
+            console.error(e.message);
+            document.getElementById('content').innerHTML = 'Failed to load';
+        })
+    </script>
+    <script>
+        var theme = Theme
+            .run()
+            .use(AntDesignColors, "blue")
+        setInterval(function () {
+            theme.setMainColor([
+                "red",
+                "volcano",
+                "orange",
+                "gold",
+                "yellow",
+                "lime",
+                "green",
+                "cyan",
+                "blue",
+                "geekblue",
+                "purple",
+                "magenta",
+                "grey"
+            ][Math.round(Math.random() * 12)])
+        }, 2000)
+        setInterval(function () {
+            theme.change()
+        }, 4000)
+    </script>
+</head>
+
+<body background-color-0 font-color-0>
+    <div id="content">loading...</div>
+    <div id="root">
+    </div>
+    <script>
+        document.body.querySelector('#root').innerHTML =
+            Array.apply(null, Array(11)).map(function (item, index) {
+                return `
+                <div 
+                    class="item" 
+                    background-color-${index} 
+                    background-color-main-${index}-hover 
+                    font-color-${index} 
+                    border-color-${index} 
+                    font-size-${12 + index * 2}
+                    box-shadow-${index % 3}
+                    box-shadow-main-${index % 3}-hover
+                >
+                    Font${12 + index * 2}
+                </div >`
+            }).join('')
+            +
+            Array.apply(null, Array(11)).map(function (item, index) {
+                return `
+                <div 
+                    class="item" 
+                    background-color-main-${index} 
+                    background-color-${index}-hover 
+                    font-color-${index} 
+                    border-color-${index} 
+                    font-size-${12 + index * 2}
+                    box-shadow-main-${index % 3}
+                    box-shadow-${index % 3}-hover
+                >
+                    Font${12 + index * 2}
+                </div >`
+            }).join('');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+{
+  "name": "@yfill/ant-design-colors",
+  "version": "1.0.0",
+  "description": "A theme extension",
+  "author": "Yfill <vps998@gmail.com>",
+  "homepage": "https://yfill.cn/ant-design-colors",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "yfill",
+    "series",
+    "theme-extension",
+    "colors",
+    "ant-design-colors"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yfill/ant-design-colors"
+  },
+  "main": "dist/index.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist/*.js",
+    "types/*.d.ts"
+  ],
+  "scripts": {
+    "build": "set NODE_ENV=production&& rollup -c",
+    "serve": "set NODE_ENV=development&& rollup -c&& nodemon serve",
+    "lint": "eslint --fix src/**/*.ts"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "browser-sync": "^2.26.13",
+    "browserslist": "^4.14.5",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.5",
+    "rollup": "^2.32.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.0.3",
+    "@yfill/theme": "^1.0.3"
+  },
+  "peerDependencies": {
+    "@yfill/theme": ">=1.0.3"
+  },
+  "browserslist": [
+    "ie 9",
+    "chrome 49",
+    "firefox 52"
+  ],
+  "nodemonConfig": {
+    "ignore": [
+      "src/*"
+    ]
+  }
+}
