@@ -1,37 +1,40 @@
-## Welcome to GitHub Pages
+# [Ant-design-colors](https://yfill.cn/ant-design-colors) &middot; [![GitHub license][mit]][mit-url] [![NPM Package][npm]][npm-url] [![Build Size][build-size]][build-size-url]
 
-You can use the [editor on GitHub](https://github.com/Yfill/ant-design-colors/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+A theme extension.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Install
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+using npm:
+```sh
+npm install @yfill/ant-design-colors --save
+```
+or using yarn:
+```sh
+yarn add @yfill/ant-design-colors
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Usage
 
-### Jekyll Themes
+* Import resources and use the use method to install, set the color( red / volcano / orange / gold / yellow / lime / green / cyan / blue / geekblue / purple / magenta / grey ).
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Yfill/ant-design-colors/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+  ```js
+  import Theme from "@yfill/theme";
+  import AntDesignColors from "@yfill/ant-design-colors";
+  Theme.run()
+       .use(AntDesignColors, "blue");
+  ```
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  ```html
+  <script src="https://unpkg.com/@yfill/theme"></script>
+  <script src="https://unpkg.com/@yfill/ant-design-colors"></script>
+  <script>
+    Theme.run()
+         .use(AntDesignColors, "blue");
+  </script>
+  ```
+[mit]:https://img.shields.io/badge/license-MIT-blue.svg
+[mit-url]:https://github.com/Yfill/ant-design-colors/blob/main/LICENSE
+[npm]: https://img.shields.io/npm/v/@yfill/ant-design-colors.svg
+[npm-url]: https://www.npmjs.com/package/@yfill/ant-design-colors
+[build-size]: https://badgen.net/bundlephobia/minzip/@yfill/ant-design-colors
+[build-size-url]: https://bundlephobia.com/result?p=@yfill/ant-design-colors
