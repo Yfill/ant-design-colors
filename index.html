@@ -17,10 +17,16 @@
         .item {
             height: 40px;
             line-height: 40px;
-            border-width: 0 0 1px 0;
-            border-style: solid;
             padding: 0 10px;
-            margin-bottom: 10px;
+        }
+
+        #root {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #root .items {
+            flex: 1;
         }
 
         * {
@@ -38,13 +44,12 @@
     <script src="https://vendor.yfill.cn/statistics.js" async></script>
     <script src="./node_modules/@yfill/theme/dist/index.js"></script>
     <script src="./dist/index.js"></script>
-    <script src="https://unpkg.com/vue"></script>
     <script>
         axios.get('./README.md').then(function (res) {
             var data = res.data;
             document.getElementById('content').innerHTML = marked(data);
             Array.apply(null, document.querySelectorAll('pre code')).forEach(function (block) {
-                block.setAttribute('background-color-1', '')
+                block.setAttribute('background-color-1', '');
                 hljs.highlightBlock(block);
             });
         }).catch(function (e) {
@@ -56,66 +61,58 @@
         var theme = Theme
             .run()
             .use(AntDesignColors, "blue")
-        setInterval(function () {
-            theme.setMainColor([
-                "red",
-                "volcano",
-                "orange",
-                "gold",
-                "yellow",
-                "lime",
-                "green",
-                "cyan",
-                "blue",
-                "geekblue",
-                "purple",
-                "magenta",
-                "grey"
-            ][Math.round(Math.random() * 12)])
-        }, 2000)
-        setInterval(function () {
-            theme.change()
-        }, 4000)
+        var colorList = [
+            "red",
+            "volcano",
+            "orange",
+            "gold",
+            "yellow",
+            "lime",
+            "green",
+            "cyan",
+            "blue",
+            "geekblue",
+            "purple",
+            "magenta",
+            "grey"
+        ]
     </script>
 </head>
 
 <body background-color-0 font-color-0>
     <div id="content">loading...</div>
-    <div id="root">
-    </div>
+    <div id="root"></div>
     <script>
         document.body.querySelector('#root').innerHTML =
-            Array.apply(null, Array(11)).map(function (item, index) {
+            `<div class="items">
+                ${colorList.map(function (item, index) {
                 return `
-                <div 
-                    class="item" 
-                    background-color-${index} 
-                    background-color-main-${index}-hover 
-                    font-color-${index} 
-                    border-color-${index} 
-                    font-size-${12 + index * 2}
-                    box-shadow-${index % 3}
-                    box-shadow-main-${index % 3}-hover
-                >
-                    Font${12 + index * 2}
-                </div >`
-            }).join('')
+                        <div 
+                            class="item"
+                            font-color-neutral-10
+                            border-color-10-a
+                            style="background-color:${AntDesignColors.getColorGroup(item)[5]};"
+                            onmouseenter="theme.setMainColor('${item}')">
+                            ${item}
+                        </div >`
+            }).join('')}
+            </div>
+            `
             +
-            Array.apply(null, Array(11)).map(function (item, index) {
+            `<div class="items">
+                ${Array.apply(null, Array(11)).map(function (item, index) {
                 return `
-                <div 
-                    class="item" 
-                    background-color-main-${index} 
-                    background-color-${index}-hover 
-                    font-color-${index} 
-                    border-color-${index} 
-                    font-size-${12 + index * 2}
-                    box-shadow-main-${index % 3}
-                    box-shadow-${index % 3}-hover
-                >
-                    Font${12 + index * 2}
-                </div >`
-            }).join('');
+                    <div 
+                        class="item" 
+                        background-color-main-${index} 
+                        font-color-${index}
+                        font-size-${12 + index * 2}
+                        box-shadow-main-${index % 3}>
+                        Font${12 + index * 2}
+                    </div >`
+            }).join('')}
+            </div>
+            `;
     </script>
 </body>
 
