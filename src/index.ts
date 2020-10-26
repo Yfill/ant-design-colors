@@ -57,6 +57,9 @@ type Handler = { (): void, [id: string]: number }
 const defaultHandler = <Handler>(() => { });
 const changeHandlerMap: { neutral: Handler, main: Handler } = { neutral: defaultHandler, main: defaultHandler };
 class AntDesignColors {
+    static getColorGroup(color: string, isLight = true): string[] {
+        return colorDesc[isLight ? 'light' : 'dark'][color] || [];
+    }
     static install(theme: Theme, color: string): void {
         const getStyleOpt = () => getStyleOptions(theme, 'neutral', 'neutral');
         changeHandlerMap.neutral = <Handler>(() => { theme.update(getStyleOpt()); });
