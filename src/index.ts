@@ -65,6 +65,7 @@ class AntDesignColors {
         changeHandlerMap.neutral = <Handler>(() => { theme.update(getStyleOpt()); });
         theme.add(getStyleOpt()).on('change', changeHandlerMap.neutral);
         theme.setMainColor = (color: string) => {
+            if (changeHandlerMap.main) theme.off('change', changeHandlerMap.main);
             const getStyleOpt = () => getStyleOptions(theme, color, 'main');
             changeHandlerMap.main = <Handler>(() => { theme.update(getStyleOpt()); });
             return theme.update(getStyleOpt()).on('change', changeHandlerMap.main);
@@ -81,3 +82,4 @@ class AntDesignColors {
     }
 }
 export default AntDesignColors;
+
