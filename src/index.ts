@@ -1,4 +1,14 @@
 import Theme from '@yfill/theme';
+
+type ColorDesc = {
+    dark: {
+        [color: string]: string[]
+    },
+    light: {
+        [color: string]: string[]
+    },
+    neutralColors: string[]
+}
 const colorDesc: ColorDesc = {
     dark: {
         'red': ['#2a1215', '#431418', '#58181c', '#791a1f', '#a61d24', '#d32029', '#e84749', '#f37370', '#f89f9a', '#fac8c3'],
@@ -53,7 +63,11 @@ const getStyleOptions = (theme: Theme, color: string, mark: string) => {
     };
 };
 type Handler = { (): void, [id: string]: number }
-// eslint-disable-next-line @typescript-eslint/no-empty-function
+declare module '@yfill/theme/types/extentions' {
+    interface Extentions {
+        setMainColor(color: string): Theme
+    }
+}
 const defaultHandler = <Handler>(() => { });
 const changeHandlerMap: { neutral: Handler, main: Handler } = { neutral: defaultHandler, main: defaultHandler };
 class AntDesignColors {
