@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Theme from '@yfill/theme';
-declare class AntDesignColors {
-  static getColorGroup(color: string, isLight = true): string[]
-  static install(): void
-  static uninstall(theme: Theme): void
+declare module '@yfill/theme/types/extentions' {
+    interface Extentions {
+        setMainColor(color: string): Theme;
+    }
 }
-declare module '@yfill/theme' {
-  interface Theme {
-    setMainColor(color: string): Theme
-  }
+declare class AntDesignColors {
+    static getColorGroup(color: string, isLight?: boolean): string[];
+    static install(theme: Theme, color: string): void;
+    static uninstall(theme: Theme): void;
 }
 export default AntDesignColors;
