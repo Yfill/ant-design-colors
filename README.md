@@ -1,4 +1,4 @@
-# [Ant-design-colors](https://yfill.cn/ant-design-colors) &middot; [![GitHub license][mit]][mit-url] [![NPM Package][npm]][npm-url] [![Build Size][build-size]][build-size-url]
+# [Ant design colors](https://yfill.cn/ant-design-colors) &middot; [![GitHub license][mit]][mit-url] [![NPM Package][npm]][npm-url] [![Build Size][build-size]][build-size-url]
 
 A theme extension.
 
