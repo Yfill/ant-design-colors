@@ -14,7 +14,7 @@ bs.init({
   notify: false,
   open: false,
   server: ['node_modules/.ant-design-colors/', './'],
-  files: ['./index.html', {
+  files: ['./index.html', './README.md', {
     match: ['src/**/*.ts'],
     fn() {
       buildTask().then(() => bs.reload());
