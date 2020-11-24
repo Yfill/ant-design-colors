@@ -52,7 +52,7 @@
     "rollup": "2.33.3",
     "rollup-plugin-terser": "7.0.2",
     "typescript": "4.1.2",
-    "@yfill/theme": "1.0.8"
+    "@yfill/theme": "1.0.9"
   },
   "peerDependencies": {
     "@yfill/theme": ">=1.0.7"
