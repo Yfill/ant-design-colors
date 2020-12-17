@@ -52,6 +52,7 @@
     async
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/@yfill/theme"></script>
+  <script src="https://vendor.yfill.cn/theme-change-btn.js"></script>
   <script src="./dist/index.js"></script>
   <script>
     axios.get('./README.md').then(function (res) {
@@ -61,6 +62,7 @@
         block.setAttribute('background-color-1', '');
         hljs.highlightBlock(block);
       });
+      themeChangeBtn.init();
     }).catch(function (e) {
       console.error(e.message);
       document.getElementById('content').innerHTML = 'Failed to load';
