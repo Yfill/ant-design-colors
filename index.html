@@ -156,40 +156,40 @@
     </svg>
   </a>
   <div id="content">loading...</div>
-  <h2>Example effect</h3>
-    <div id="root"></div>
-    <script>
-      document.body.querySelector('#root').innerHTML =
-        `<div class="items">
-                ${colorList.map(function (item, index) {
-          return `
-                        <div 
-                            class="item"
-                            font-color-neutral-10
-                            border-color-10-a
-                            style="background-color:${AntDesignColors.getColorGroup(item)[5]};"
-                            onmouseenter="theme.setMainColor('${item}')">
-                            ${item}
-                        </div >`
-        }).join('')}
-            </div>
-            `
-        +
-        `<div class="items">
-                ${Array.apply(null, Array(11)).map(function (item, index) {
-          return `
-                    <div 
-                        class="item" 
-                        background-color-main-${index} 
-                        font-color-${index}
-                        font-size-${12 + index * 2}
-                        box-shadow-main-${index % 3}>
-                        Font${12 + index * 2}
-                    </div >`
-        }).join('')}
-            </div>
-            `;
-    </script>
+  <h2>Example effect</h2>
+  <div id="root"></div>
+  <script>
+    document.body.querySelector('#root').innerHTML =
+      `<div class="items">
+              ${colorList.map(function (item, index) {
+        return `
+                      <div 
+                          class="item"
+                          font-color-neutral-10
+                          border-color-10-a
+                          style="background-color:${AntDesignColors.getColorGroup(item)[5]};"
+                          onmouseenter="theme.setMainColor('${item}')">
+                          ${item}
+                      </div >`
+      }).join('')}
+          </div>
+          `
+      +
+      `<div class="items">
+              ${Array.apply(null, Array(11)).map(function (item, index) {
+        return `
+                  <div 
+                      class="item" 
+                      background-color-main-${index} 
+                      font-color-${index}
+                      font-size-${12 + index * 2}
+                      box-shadow-main-${index % 3}>
+                      Font${12 + index * 2}
+                  </div >`
+      }).join('')}
+          </div>
+          `;
+  </script>
 </body>
 
 </html>
