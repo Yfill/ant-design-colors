@@ -61,7 +61,8 @@
                           font-color-neutral-10
                           border-color-10-a
                           style="background-color:${AntDesignColors.getColorGroup(item)[5]};"
-                          onmouseenter="theme.setMainColor('${item}')">
+                          onmouseenter="theme.setMainColor('${item}')"
+                          ontouchstart="theme.setMainColor('${item}')">
                           ${item}
                       </div >`
       }).join('')}
