@@ -24,14 +24,39 @@ const developmentPlugins = [];
 const productionPlugins = [
   terser(),
 ];
+const name = 'AntDesignColors';
+const banner = `/*! ${pkg.name} v${pkg.version} | ${new Date().toGMTString()} | ${pkg.homepage} */`;
+const proOutputOpt = {
+  name,
+  banner,
+  exports: 'default',
+  sourcemap: false,
+};
 export default {
   input: './src/index.ts',
-  output: {
-    name: 'AntDesignColors',
+  output: isProduction
+  ? [
+    {
+      ...proOutputOpt,
+      format: 'umd',
+      file: 'dist/index.js',
+    },
+    {
+      ...proOutputOpt,
+      format: 'cjs',
+      file: 'dist/index.cjs.js',
+    },
+    {
+      ...proOutputOpt,
+      format: 'es',
+      file: 'dist/index.esm.js',
+    },
+  ]
+  : {
+    name,
     format: 'umd',
-    file: isProduction ? 'dist/index.js' : 'node_modules/.ant-design-colors/dist/index.js',
-    sourcemap: !isProduction,
-    banner: `/*! ${pkg.name} v${pkg.version} | ${new Date().toGMTString()} | ${pkg.homepage} */`,
+    file: 'node_modules/.ant-design-colors/dist/index.js',
+    sourcemap: true,
   },
   plugins: [
     ...basePlugins,
